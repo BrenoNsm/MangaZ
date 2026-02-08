@@ -1,10 +1,13 @@
-name: Gerar APK MangaZ
+name: Gerar Release MangaZ
 
 on:
   push:
     branches:
       - main
   workflow_dispatch:
+
+permissions:
+  contents: write # Permissão necessária para o robô criar a Release
 
 jobs:
   build:
@@ -18,10 +21,10 @@ jobs:
           distribution: 'zulu'
           java-version: '17'
 
-      - name: Instalar Flutter (Última Versão)
+      - name: Instalar Flutter
         uses: subosito/flutter-action@v2
         with:
-          channel: 'stable' # Sem fixar versão, ele pega a última de hoje
+          channel: 'stable'
           cache: true
 
       - name: Baixar dependências
@@ -30,8 +33,14 @@ jobs:
       - name: Gerar o APK
         run: flutter build apk --release --split-per-abi
 
-      - name: Disponibilizar o arquivo
-        uses: actions/upload-artifact@v4
+      - name: Criar Release e Upload dos APKs
+        uses: softprops/action-gh-release@v2
         with:
-          name: manga-z-app
-          path: build/app/outputs/flutter-apk/*.apk
+          tag_name: v1.0.${{ github.run_number }} # Cria uma versão nova a cada execução (ex: v1.0.1, v1.0.2)
+          name: MangaZ Release v1.0.${{ github.run_number }}
+          draft: false
+          prerelease: false
+          files: |
+            build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk
+            build/app/outputs/flutter-apk/app-arm64-v8a-release.apk
+            build/app/outputs/flutter-apk/app-x86_64-release.apk
