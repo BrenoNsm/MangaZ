@@ -11,19 +11,20 @@ dependencies:
   flutter:
     sdk: flutter
 
-  cupertino_icons: ^1.0.8
-  http: ^1.1.0            # Versão compatível
-  url_launcher: ^6.1.11    # Versão compatível
-  path_provider: ^2.0.15   # Versão compatível
-  share_plus: ^7.1.0       # Versão compatível
-  file_picker: ^6.1.1      # ESTE É O CONSERTO: Versão que aceita Dart 3.0.0
-  dio: ^5.2.1              # Versão compatível
+  # Ajustado de 1.0.8 para 1.0.7 para aceitar o Dart 3.0.6
+  cupertino_icons: 1.0.7 
+  http: 1.1.0
+  url_launcher: 6.1.14
+  path_provider: 2.0.15
+  share_plus: 7.1.0
+  file_picker: 6.1.1
+  dio: 5.3.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
-  flutter_launcher_icons: ^0.13.1
+  flutter_lints: 2.0.3
+  flutter_launcher_icons: 0.13.1
 
 flutter:
   uses-material-design: true
