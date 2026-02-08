@@ -21,7 +21,8 @@ jobs:
       - name: Instalar Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.10.8'
+          # Usar o 'x' resolve problemas de versões específicas não encontradas
+          flutter-version: '3.10.x' 
           channel: 'stable'
           cache: true
 
