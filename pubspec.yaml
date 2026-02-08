@@ -5,7 +5,7 @@ publish_to: 'none'
 version: 1.0.0+1
 
 environment:
-  sdk: '>=3.10.8 <4.0.0'
+  sdk: '>=3.0.0 <4.0.0' # Compatível com o Dart 3.0.6 do GitHub
 
 dependencies:
   flutter:
@@ -23,18 +23,15 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^3.0.0
-  # Biblioteca para gerar os ícones do app
   flutter_launcher_icons: ^0.13.1
 
 flutter:
   uses-material-design: true
 
-  # Configuração do Banner Lateral
   assets:
     - assets/images/Baner Lateral.png
     - assets/images/Logo.png
 
-# Configuração do Ícone do Aplicativo (Galeria)
 flutter_launcher_icons:
   android: "launcher_icon"
   ios: true
