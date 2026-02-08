@@ -18,11 +18,10 @@ jobs:
           distribution: 'zulu'
           java-version: '17'
 
-      - name: Instalar Flutter
+      - name: Instalar Flutter (Última Versão)
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.10.x'
-          channel: 'stable'
+          channel: 'stable' # Sem fixar versão, ele pega a última de hoje
           cache: true
 
       - name: Baixar dependências
